@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+// Clemente
 const StyledProducts= styled.section`
     /*  Here you can write css. The css will cascade to all the children. 
         https://styled-components.com/docs

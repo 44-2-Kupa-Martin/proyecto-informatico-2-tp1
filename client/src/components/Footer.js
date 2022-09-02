@@ -1,4 +1,5 @@
 import styled from "styled-components";
+// Ghia
 const StyledFooter= styled.section`
     /*  Here you can write css. The css will cascade to all the children. 
         https://styled-components.com/docs
