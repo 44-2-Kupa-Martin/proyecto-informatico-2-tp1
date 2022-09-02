@@ -9,12 +9,12 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
+    <div className="App" style={{maxWidth: '900px', margin:'0 auto 0 auto'}}>
+      <Navbar noLogo />
       <Header />
       <Products />
       <About id="about" />
-      <Services />
+      <Services id="services" />
       <Contact />
       <Footer />
     </div>
