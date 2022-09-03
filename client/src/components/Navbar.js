@@ -77,12 +77,12 @@ export default function Navbar(props) {
     return (
         <StyledNavbar height={props.height} noLogo={props.noLogo}>
             {props.noLogo ? 
-                <></>
+            <></>
             :
-                <Link to="/" className="logo">
-                    <img src="./favicon.ico" alt="Logo" />
-                    <h1>Mi Solcito</h1>
-                </Link>}
+            <Link to="/" className="logo">
+                <img src="./favicon.ico" alt="Logo" />
+                <h1>Mi Solcito</h1>
+            </Link>}
             <ul>
                 <li><Link to="/#products">Productos</Link></li>
                 <li><Link to="/#about">Nosotros</Link></li>

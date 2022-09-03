@@ -6,10 +6,9 @@ import Services from './components/Services';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-
 function App() {
   return (
-    <div className="App" style={{maxWidth: '900px', margin:'0 auto 0 auto'}}>
+    <div className="App easeIn" style={{maxWidth: '900px', margin: '0 auto 0 auto'}}>
       <Navbar noLogo />
       <Header />
       <Products />
