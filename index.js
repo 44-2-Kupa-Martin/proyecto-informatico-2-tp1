@@ -1,5 +1,4 @@
 const express= require('express');
-const fs= require('fs');
 const mysql= require('mysql2/promise');
 
 //Connect to DB
@@ -41,11 +40,16 @@ app.post('/api/messages', async(req, res) => {
     }
 
     try {
-        await dbConnection.execute('INSERT INTO userMessages (name, surname, email, message) VALUES (?, ?, ?, ?)', [name, surname, email, message]);
+        await dbConnection.execute('INSERT INTO userMessages (name, surname, email, message, ip) VALUES (?, ?, ?, ?, ?)', [name, surname, email, message, req.ip]);
         res.send();
     } catch (error) {
-        res.status(500).json({err: "The message was received but was not saved."});
+        //Handle ER_DATA_TOO_LONG
+        if (error.code === 'ER_DATA_TOO_LONG') {
+            res.status(400).json({err: `Too many characters on property: ${error.sqlMessage.match(/'(.*?)'/g)}`});
+            return;
+        }
         console.log(error);
+        res.status(500).json({err: "The message was received but was not saved."});
     }
 });
 
