@@ -26,7 +26,7 @@ const StyledProducts = styled.section`
         flex-direction: row;
         border-radius: 40px;
         width: 10rem;
-        height 10rem;
+        height: 10rem;
         background-color: gray;
     }
     #products-images-2 {
@@ -41,7 +41,7 @@ const StyledProducts = styled.section`
         flex-direction: row;
         border-radius: 40px;
         width: 10rem;
-        height 10rem;
+        height: 10rem;
         background-color: gray;
 
     }
