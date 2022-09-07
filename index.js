@@ -1,13 +1,37 @@
 const express= require('express');
 const fs= require('fs');
+const mysql= require('mysql2/promise');
 
+//Connect to DB
+const dbConfig= {
+    user: process.env.DBUSER ?? 'root',
+    password: process.env.DBPASSWORD ?? 'password',
+    database: process.env.DBNAME ?? 'MiSolcito',
+    host: process.env.DBHOST ?? 'localhost',
+    port: process.env.DBPORT ?? '3306'
+};
+var dbConnection;
+(async() => {
+    try {
+        dbConnection= await mysql.createConnection(dbConfig);
+        console.log('Database: connected successfully');
+    } catch (error) {
+        console.log('Database: failed connection');
+        console.log(error);
+    }
+})();
+console.log(`DB config: `);
+console.log(dbConfig);
+
+//Express app
 const app= express();
 
 const PORT= process.env.PORT ?? 4000;
 
+//Routes
 app.use(express.urlencoded({extended: true}));
 
-app.post('/messages', (req, res) => {
+app.post('/api/messages', async(req, res) => {
     const { name, surname, email, message }= req.body;
 
     const exist= name && surname && email && message;
@@ -15,42 +39,14 @@ app.post('/messages', (req, res) => {
         res.status(400).json({err: "Missing or empty properties"});
         return;
     }
-    const validTypes= areStrings(name, surname, email, message);
-    if (!validTypes) {
-        res.status(400).json({err: "Invalid type"});
-        return;
+
+    try {
+        await dbConnection.execute('INSERT INTO userMessages (name, surname, email, message) VALUES (?, ?, ?, ?)', [name, surname, email, message]);
+        res.send();
+    } catch (error) {
+        res.status(500).json({err: "The message was received but was not saved."});
+        console.log(error);
     }
-    const form= {name, surname, email, message};
-    // const succeeded= saveForm(form); 
-    /*succeeded*/0 ? res.send() : res.status(500).json({err: "The message was received but was not saved."});
 });
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));
-
-
-// Function declarations
-function areStrings(name, surname, email, message) {
-    const isString= (str) => {
-        return typeof str === 'string' || str instanceof String;
-    }
-    return isString(name) && isString(surname) && isString(email) && isString(message);
-};
-
-function saveForm(form) {
-    try {
-        let forms;
-        try {
-            forms= JSON.parse(fs.readFileSync('./files/forms.json', {encoding: 'utf8'}));
-        } catch (error) {
-            //Handle ENOENT: no such file or directory.
-            if (error.code !== 'ENOENT') throw error; //If not ENOENT, rethrow.
-            forms= [];
-        }
-        forms.push(form);
-        fs.writeFileSync('./files/forms.json', JSON.stringify(forms));
-        return true;
-    } catch (error) {
-        console.log(error);
-        return false;
-    }
-}

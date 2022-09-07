@@ -20,7 +20,8 @@
   },
   "homepage": "https://github.com/44-2-Kupa-Martin/proyecto-informatico-2-tp1#readme",
   "dependencies": {
-    "express": "^4.18.1"
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"
