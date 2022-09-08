@@ -47,9 +47,9 @@ const StyledProducts = styled.section`
     }
 `;
 
-export default function Products(params) {
+export default function Products(props) {
     return (
-        <StyledProducts>
+        <StyledProducts id={props.id}>
             <h1>Productos</h1>
             <p id="products">Contamos con una amplia variedad de tortas para todos los gustos, además de tortas, ofrecemos una gran variedad de dulces.</p>
             <p>Elaboramos galletas, cupcakes, macarros, postres y muchas más delicias. ¡No te quedes con el antojo!</p>

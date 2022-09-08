@@ -11,10 +11,10 @@ function App() {
     <div className="App easeIn" style={{maxWidth: '900px', margin: '0 auto 0 auto'}}>
       <Navbar noLogo />
       <Header />
-      <Products />
+      <Products id="products" />
       <About id="about" />
       <Services id="services" />
-      <Contact />
+      <Contact id="contact" />
       <Footer />
     </div>
   );

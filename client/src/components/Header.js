@@ -1,6 +1,5 @@
 import styled from "styled-components";
 // Jowi
-import {HashLink as Link } from "react-router-hash-link" 
 const StyledHeader= styled.section`
    img#rss {
 
@@ -26,11 +25,11 @@ export default function Header(params) {
             <img src="tortasaborpija.png" alt="tortasaborpija"/>
 
             <div id="rrss">
-            <a href="https://www.facebook.com" target="_blank"><img src="facebooklogo.png" alt="facebook" id="rss" /></a>
+            <a href="https://www.facebook.com" target="_blank" rel="noreferrer"><img src="facebooklogo.png" alt="facebook" id="rss" /></a>
             
-            <a href="https://www.instagram.com" target="_blank"><img src="iglogo.png" alt="instagram" id="rss" /></a>
+            <a href="https://www.instagram.com" target="_blank" rel="noreferrer"><img src="iglogo.png" alt="instagram" id="rss" /></a>
             
-            <a href="https://www.pornhub.com" target="_blank"><img src="twitterlogo.png" alt="twitter" id="rss" /></a>
+            <a href="https://www.pornhub.com" target="_blank" rel="noreferrer"><img src="twitterlogo.png" alt="twitter" id="rss" /></a>
             
             
             </div>

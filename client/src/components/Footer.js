@@ -1,6 +1,6 @@
 import styled from "styled-components";
 // Ghia
-const StyledFooter= styled.section`
+const StyledFooter= styled.footer`
     .main-footer {
         
          display: flex;

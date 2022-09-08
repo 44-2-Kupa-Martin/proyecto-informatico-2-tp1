@@ -6,9 +6,9 @@ const StyledContact= styled.section`
     */
     color: red;
 `;
-export default function Contact(params) {
+export default function Contact(props) {
     return (
-        <StyledContact>
+        <StyledContact id={props.id}>
             Here you can write html
             https://reactjs.org/docs/hello-world.html
             {/* And here you can write javascript. Remember to enclose it in curly braces. 
