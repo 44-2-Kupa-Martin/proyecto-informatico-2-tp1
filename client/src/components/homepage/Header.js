@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import Navbar from "../Navbar";
 // Jowi
-const StyledHeader= styled.section`
+const StyledHeader= styled.header`
    img#rss {
 
     }
@@ -20,6 +21,7 @@ const StyledHeader= styled.section`
 export default function Header(params) {
     return (
         <StyledHeader>
+            <Navbar noLogo />
             <h1>Mi solcito</h1>
             <h2>Sabores que te llevan a las estrellas</h2>
             <img src="tortasaborpija.png" alt="tortasaborpija"/>

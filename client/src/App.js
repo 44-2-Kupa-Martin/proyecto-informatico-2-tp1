@@ -1,20 +1,20 @@
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Products from './components/Products';
-import About from "./components/About";
-import Services from './components/Services';
-import Contact from './components/Contact';
+import Header from "./components/homepage/Header";
+import Products from './components/homepage/Products';
+import About from "./components/homepage/About";
+import Services from './components/homepage/Services';
+import Contact from './components/homepage/Contact';
 import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="App easeIn" style={{maxWidth: '900px', margin: '0 auto 0 auto'}}>
-      <Navbar noLogo />
+    <div className="easeIn" style={{maxWidth: '900px', margin: '0 auto 0 auto'}}>
       <Header />
-      <Products id="products" />
-      <About id="about" />
-      <Services id="services" />
-      <Contact id="contact" />
+      <main>
+        <Products id="products" />
+        <About id="about" />
+        <Services id="services" />
+        <Contact id="contact" />
+      </main>
       <Footer />
     </div>
   );
