@@ -84,7 +84,7 @@ export default function Navbar(props) {
                 <h1>Mi Solcito</h1>
             </Link>}
             <ul>
-                <li><Link to="/#products">Productos</Link></li>
+                <li><Link to="/products">Productos</Link></li>
                 <li><Link to="/#about">Nosotros</Link></li>
                 <li><Link to="/#services">Servicios</Link></li>
                 <li><Link to="/#contact">Contacto</Link></li>

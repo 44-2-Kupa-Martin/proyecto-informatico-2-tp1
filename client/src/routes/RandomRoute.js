@@ -1,6 +1,6 @@
 import Navbar from "../components/Navbar";
 
-export default function RandomRoute(params) {
+export default function RandomRoute(props) {
     return (
         <div className="easeIn">
             <Navbar />

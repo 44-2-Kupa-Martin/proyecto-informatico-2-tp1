@@ -26,3 +26,7 @@ body {
 .easeIn {
   animation: easeIn 0.2s linear;
 }
+.formatCenter {
+  max-width: 1000px;
+  margin: 0 auto 0 auto;
+}
