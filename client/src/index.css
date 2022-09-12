@@ -11,7 +11,11 @@
     opacity: 1;
   }
 }
-
+:root {
+  --main-font: Arial, Helvetica, Sans-serif;
+  --main-text-color: #595959;
+  --link-color: gray; 
+}
 * {
   box-sizing: border-box;
 }

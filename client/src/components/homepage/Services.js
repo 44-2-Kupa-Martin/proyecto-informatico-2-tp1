@@ -24,7 +24,7 @@ const StyledServices= styled.section`
         text-align: justify;
         font-family: Arial, Helvetica, sans-serif;
         font-size: clamp(10px, 2.02vw, 20px);
-        color: #595959;
+        color: var(--main-text-color);
     }
 
     p#collage {
