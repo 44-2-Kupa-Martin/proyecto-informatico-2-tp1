@@ -34,6 +34,7 @@ const StyledProducts = styled.section`
         font-size: 2rem;
         margin-top: -60%;
         font-family: Bahnschrift;
+        -webkit-user-select: none;
     }
     .box img {
         width: 100%;
