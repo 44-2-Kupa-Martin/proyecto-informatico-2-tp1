@@ -112,7 +112,7 @@ const StyledAside= styled.aside`
         width: 14px; 
     }
 
-    @media (max-width: ${(props) => 409 + props.scrollbarWidth}px) {
+    @media (max-width: ${(props) => 419 + props.scrollbarWidth}px) {
         position: static;
 
         .filter {

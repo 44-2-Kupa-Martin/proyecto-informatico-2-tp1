@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { HashLink as Link } from "react-router-dom";
 
 // Clemente
 const StyledProducts = styled.section`
@@ -88,19 +89,19 @@ export default function Products(props) {
             <section class="flex-container">
                 <div class="box b1">
                     <img id="cupcakes" src="./cupcakes.png" alt="Una foto de nuestros Cupcakes"/>
-                    <a href="/products#"><h3>Cupcakes</h3></a>
+                    <Link to="/products#"><h3>Cupcakes</h3></Link>
                 </div>
                 <div class="box b2">
                     <img id="galletitas" src="./galletitas.png" alt="Una foto de nuestras Cookies"/>
-                    <a href="/products#"><h3>Galletitas</h3></a>
+                    <Link to="/products#"><h3>Galletitas</h3></Link>
                 </div>
                 <div class="box b3">
                     <img id="macarrons" src="./macarrons.png" alt="Una foto de nuestros Macarrons"/>
-                    <a href="/products#"><h3>Macarrons</h3></a>
+                    <Link to="/products#"><h3>Macarrons</h3></Link>
                 </div>
                 <div class="box b4">
                     <img id="postres" src="./postres.png" alt="Una foto de nuestros Postres"/>
-                    <a href="/products#"><h3>Postres</h3></a>
+                    <Link to="/products#"><h3>Postres</h3></Link>
                 </div>
                 <div class="box b5">
                     <img id="facturas" src="./facturas.png" alt="Una foto de nuestras Facturas"/>
@@ -108,7 +109,7 @@ export default function Products(props) {
                 </div>
                 <div class="box b6">
                     <img id="pastel" src="./pastel.png" alt="Una foto de nuestros Cupcakes"/>
-                    <a href="/products#"><h3>Pasteles</h3></a>
+                    <Link to="/products#"><h3>Pasteles</h3></Link>
                 </div>
             </section>
                 

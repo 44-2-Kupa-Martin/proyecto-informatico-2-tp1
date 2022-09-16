@@ -12,7 +12,13 @@ const StyledHeader= styled.header`
         height: 400px;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+    }
+    .banner h1 {
+        font-family: var(--main-font);
+        font-weight: bolder;
+        font-size: 3.5rem;
+        color: white;
+        margin-top: 100px;
     }
 `;
 
