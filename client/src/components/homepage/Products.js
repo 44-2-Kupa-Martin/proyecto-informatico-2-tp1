@@ -62,13 +62,6 @@ const StyledProducts = styled.section`
         text-align: center;
         transition: all 0.5s ease-out;
     }
-    .b1:hover img, .b5:hover img, .b2:hover img, .b6:hover img, .b3:hover img, .b4:hover img {
-        display:none;
-    }
-    .b1:hover h3, .b5:hover h3, .b2:hover h3, .b6:hover h3, .b3:hover h3,.b4:hover h3 {
-        margin-top: 36.5%;
-    }
-
     .b2:hover, .b6:hover {
         background-color: rgb(218, 187, 122);
         text-align: center;
@@ -80,6 +73,14 @@ const StyledProducts = styled.section`
         text-align: center;
         transition: all 0.5s ease-out;
     }
+    .b1:hover img, .b5:hover img, .b2:hover img, .b6:hover img, .b3:hover img, .b4:hover img {
+        display:none;
+    }
+    .b1:hover h3, .b5:hover h3, .b2:hover h3, .b6:hover h3, .b3:hover h3,.b4:hover h3 {
+        margin-top: 36.5%;
+    }
+
+    
 
     
 `;
