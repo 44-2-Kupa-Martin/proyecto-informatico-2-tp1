@@ -55,7 +55,7 @@ export default function SearchBar(props) {
                 <span className="hide">Search product</span>
             </label>
             <input type="search" name="name" id="searchbox" placeholder="Search product" />
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
         </StyledForm>
     );
 }

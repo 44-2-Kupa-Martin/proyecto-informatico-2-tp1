@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const StyledAside= styled.aside`
     position: sticky;
@@ -85,14 +86,11 @@ const StyledAside= styled.aside`
         background-color: white; 
         border-width: 1px; 
         border-style: solid; 
-        border-color: rgb(204, 204, 204); 
+        border-color: rgb(0,0,0);
         border-radius: 2px; 
         box-shadow: none; 
     }
-    .css-checkbox:checked + label::before { 
-        border-color: rgb(0,0,0); 
-    }
-    .css-checkbox:checked + label::after { 
+    .css-checkbox + label::after { 
         content: " "; 
         background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+"); 
         background-repeat: no-repeat; 
@@ -112,6 +110,14 @@ const StyledAside= styled.aside`
         width: 14px; 
     }
 
+    .css-checkbox:checked + label::before {
+        border-color: rgb(204, 204, 204); 
+    }
+
+    .css-checkbox:checked + label::after {
+        display: none;
+    }
+
     @media (max-width: ${(props) => 419 + props.scrollbarWidth}px) {
         position: static;
 
@@ -124,44 +130,79 @@ const StyledAside= styled.aside`
 `;
 
 export default function Sidebar(props) {
-    const [cupcakesChecked, setCupcakesChecked]= useState(true);
-    const [cakesChecked, setCakesChecked]= useState(true);
-    const [cookiesChecked, setCookiesChecked]= useState(true);
-    const [macaronsChecked, setMacaronsChecked]= useState(true);
-    const [dessertsChecked, setDessertsChecked]= useState(true);
-    const [croissantsChecked, setCroissantsChecked]= useState(true);
-    useEffect(() => console.log('test'), [cupcakesChecked, cakesChecked, cookiesChecked, macaronsChecked, dessertsChecked, croissantsChecked]);
+    const [searchParams, setSearchParams]= useSearchParams();
+    function handleChange(e) {
+        setSearchParams(new URLSearchParams(new FormData(e.target.form)));
+    }
     return (
         <StyledAside scrollbarWidth={useScrollbarWidth()}>
             <span className="route"><span className="unfocused"><Link to="/#">Inicio</Link> / </span>Productos</span>
             <div className="filter">
                 <h4>Categoria</h4>
-                <ul>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="cupcakes" checked={cupcakesChecked} onChange={() => setCupcakesChecked(!cupcakesChecked)} />
-                        <label htmlFor="cupcakes">Cupcakes</label>
-                    </li>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="cakes" checked={cakesChecked} onChange={() => setCakesChecked(!cakesChecked)} />
-                        <label htmlFor="cakes">Pasteles</label>
-                    </li>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="cookies" checked={cookiesChecked} onChange={() => setCookiesChecked(!cookiesChecked)} />
-                        <label htmlFor="cookies">Cookies</label>
-                    </li>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="macarons" checked={macaronsChecked} onChange={() => setMacaronsChecked(!macaronsChecked)} />
-                        <label htmlFor="macarons">Macarrones</label>
-                    </li>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="desserts" checked={dessertsChecked} onChange={() => setDessertsChecked(!dessertsChecked)} />
-                        <label htmlFor="desserts">Postres</label>
-                    </li>
-                    <li>
-                        <input className="css-checkbox" type="checkbox" id="croissants" checked={croissantsChecked} onChange={() => setCroissantsChecked(!croissantsChecked)} />
-                        <label htmlFor="croissants">Facturas</label>
-                    </li>
-                </ul>
+                <form id="filter" onChange={handleChange}>
+                    <ul>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="cupcakes" 
+                                name="filterCupcakes" 
+                                form="filter"
+                            />
+                            <label htmlFor="cupcakes">Cupcakes</label>
+                        </li>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="cakes" 
+                                name="filterCakes" 
+                                form="filter"
+                            />
+                            <label htmlFor="cakes">Pasteles</label>
+                        </li>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="cookies" 
+                                name="filterCookies" 
+                                form="filter"
+                            />
+                            <label htmlFor="cookies">Cookies</label>
+                        </li>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="macarons" 
+                                name="filterMacarons" 
+                                form="filter"
+                            />
+                            <label htmlFor="macarons">Macarrones</label>
+                        </li>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="desserts" 
+                                name="filterDesserts" 
+                                form="filter"
+                            />
+                            <label htmlFor="desserts">Postres</label>
+                        </li>
+                        <li>
+                            <input 
+                                className="css-checkbox" 
+                                type="checkbox" 
+                                id="croissants" 
+                                name="filterCroissants" 
+                                form="filter"
+                            />
+                            <label htmlFor="croissants">Facturas</label>
+                        </li>
+                    </ul>
+                </form>                
             </div>
         </StyledAside>
     );
