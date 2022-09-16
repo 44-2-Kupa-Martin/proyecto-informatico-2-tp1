@@ -33,9 +33,10 @@ const StyledProducts = styled.section`
     .box h3 {
         color: white;
         font-size: 2rem;
-        margin-top: -60%;
+        margin-top: -56.5%;
         font-family: Bahnschrift;
-        -webkit-user-select: none;
+        user-select: none;
+        
     }
     .box img {
         width: 9rem;
