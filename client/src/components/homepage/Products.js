@@ -37,8 +37,8 @@ const StyledProducts = styled.section`
         -webkit-user-select: none;
     }
     .box img {
-        width: 100%;
-        height: 150px;
+        width: 9rem;
+        height: 9rem;
     }
     a {
         text-decoration:none;
