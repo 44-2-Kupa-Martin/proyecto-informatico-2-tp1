@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const StyledAside= styled.aside`
     position: sticky;
@@ -124,6 +124,13 @@ const StyledAside= styled.aside`
 `;
 
 export default function Sidebar(props) {
+    const [cupcakesChecked, setCupcakesChecked]= useState(true);
+    const [cakesChecked, setCakesChecked]= useState(true);
+    const [cookiesChecked, setCookiesChecked]= useState(true);
+    const [macaronsChecked, setMacaronsChecked]= useState(true);
+    const [dessertsChecked, setDessertsChecked]= useState(true);
+    const [croissantsChecked, setCroissantsChecked]= useState(true);
+    useEffect(() => console.log('test'), [cupcakesChecked, cakesChecked, cookiesChecked, macaronsChecked, dessertsChecked, croissantsChecked]);
     return (
         <StyledAside scrollbarWidth={useScrollbarWidth()}>
             <span className="route"><span className="unfocused"><Link to="/#">Inicio</Link> / </span>Productos</span>
@@ -131,27 +138,27 @@ export default function Sidebar(props) {
                 <h4>Categoria</h4>
                 <ul>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="cupcakes" />
+                        <input className="css-checkbox" type="checkbox" id="cupcakes" checked={cupcakesChecked} onChange={() => setCupcakesChecked(!cupcakesChecked)} />
                         <label htmlFor="cupcakes">Cupcakes</label>
                     </li>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="cakes" />
+                        <input className="css-checkbox" type="checkbox" id="cakes" checked={cakesChecked} onChange={() => setCakesChecked(!cakesChecked)} />
                         <label htmlFor="cakes">Pasteles</label>
                     </li>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="cookies" />
+                        <input className="css-checkbox" type="checkbox" id="cookies" checked={cookiesChecked} onChange={() => setCookiesChecked(!cookiesChecked)} />
                         <label htmlFor="cookies">Cookies</label>
                     </li>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="macarons" />
+                        <input className="css-checkbox" type="checkbox" id="macarons" checked={macaronsChecked} onChange={() => setMacaronsChecked(!macaronsChecked)} />
                         <label htmlFor="macarons">Macarrones</label>
                     </li>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="desserts" />
+                        <input className="css-checkbox" type="checkbox" id="desserts" checked={dessertsChecked} onChange={() => setDessertsChecked(!dessertsChecked)} />
                         <label htmlFor="desserts">Postres</label>
                     </li>
                     <li>
-                        <input className="css-checkbox" type="checkbox" id="croissants" />
+                        <input className="css-checkbox" type="checkbox" id="croissants" checked={croissantsChecked} onChange={() => setCroissantsChecked(!croissantsChecked)} />
                         <label htmlFor="croissants">Facturas</label>
                     </li>
                 </ul>

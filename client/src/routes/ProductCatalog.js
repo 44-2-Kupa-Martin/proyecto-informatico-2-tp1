@@ -12,13 +12,12 @@ const StyledDiv= styled.div`
     }
 `;
 export default function ProductCatalog(props) {
-    const [searchParams, setSearchParams]= useSearchParams();
     return (
         <StyledDiv className="easeIn">
-            <Header setSearchParams={setSearchParams} />
+            <Header />
             <main className="formatCenter">
-                <Sidebar setSearchParams={setSearchParams} />
-                <Catalog searchParams={searchParams} />
+                <Sidebar />
+                <Catalog />
             </main>
             <Footer />
         </StyledDiv>
