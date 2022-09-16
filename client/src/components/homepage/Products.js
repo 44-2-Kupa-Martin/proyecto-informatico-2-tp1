@@ -12,7 +12,7 @@ const StyledProducts = styled.section`
     p {
         text-align: justify;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(10px, 2.02vw, 20px);
+        font-size: 1.3rem;
         color: #595959;
     }
     .flex-container {
@@ -51,13 +51,14 @@ const StyledProducts = styled.section`
         background-color: rgb(233, 214, 175);
     }
     .b3, .b4 {
-        background-color: rgb(221, 233, 251);
+        background-color: rgb(209, 227, 255);
     }
 
     
     .b1:hover, .b5:hover {
         background-color: rgb(197, 123, 112);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
     .b1:hover img, .b5:hover img, .b2:hover img, .b6:hover img, .b3:hover img, .b4:hover img {
         display:none;
@@ -69,11 +70,13 @@ const StyledProducts = styled.section`
     .b2:hover, .b6:hover {
         background-color: rgb(218, 187, 122);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
 
     .b3:hover, .b4:hover {
-        background-color: rgb(198, 219, 249);
+        background-color: rgb(180, 210, 255);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
 
     
