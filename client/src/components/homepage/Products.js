@@ -13,7 +13,7 @@ const StyledProducts = styled.section`
     p {
         text-align: justify;
         font-family: Arial, Helvetica, sans-serif;
-        font-size: clamp(10px, 2.02vw, 20px);
+        font-size: 1.3rem;
         color: #595959;
     }
     .flex-container {
@@ -52,13 +52,14 @@ const StyledProducts = styled.section`
         background-color: rgb(233, 214, 175);
     }
     .b3, .b4 {
-        background-color: rgb(221, 233, 251);
+        background-color: rgb(209, 227, 255);
     }
 
     
     .b1:hover, .b5:hover {
         background-color: rgb(197, 123, 112);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
     .b1:hover img, .b5:hover img, .b2:hover img, .b6:hover img, .b3:hover img, .b4:hover img {
         display:none;
@@ -70,11 +71,13 @@ const StyledProducts = styled.section`
     .b2:hover, .b6:hover {
         background-color: rgb(218, 187, 122);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
 
     .b3:hover, .b4:hover {
-        background-color: rgb(198, 219, 249);
+        background-color: rgb(180, 210, 255);
         text-align: center;
+        transition: all 0.5s ease-out;
     }
 
     
@@ -87,30 +90,30 @@ export default function Products(props) {
             <p id="products#">Contamos con una amplia variedad de tortas para todos los gustos, además de tortas, ofrecemos una gran variedad de dulces.</p>
             <p>Elaboramos galletas, cupcakes, macarros, postres y muchas más delicias. ¡No te quedes con el antojo!</p>
             <section class="flex-container">
-                <div class="box b1">
-                    <img id="cupcakes" src="./cupcakes.png" alt="Una foto de nuestros Cupcakes"/>
-                    <Link to="/products#"><h3>Cupcakes</h3></Link>
-                </div>
-                <div class="box b2">
+                <a href="/products#" class="box b1">
+                <img id="cupcakes" src="./cupcakes.png" alt="Una foto de nuestros Cupcakes"/>
+                    <h3>Cupcakes</h3>
+                </a>
+                <a href="/products#" class="box b2">
                     <img id="galletitas" src="./galletitas.png" alt="Una foto de nuestras Cookies"/>
-                    <Link to="/products#"><h3>Galletitas</h3></Link>
-                </div>
-                <div class="box b3">
+                    <a href="/products#"><h3>Galletitas</h3></a>
+                </a>
+                <a href="/products#" class="box b3">
                     <img id="macarrons" src="./macarrons.png" alt="Una foto de nuestros Macarrons"/>
-                    <Link to="/products#"><h3>Macarrons</h3></Link>
-                </div>
-                <div class="box b4">
+                    <a href="/products#"><h3>Macarrons</h3></a>
+                </a>
+                <a href="/products#" class="box b4">
                     <img id="postres" src="./postres.png" alt="Una foto de nuestros Postres"/>
-                    <Link to="/products#"><h3>Postres</h3></Link>
-                </div>
-                <div class="box b5">
+                    <a href="/products#"><h3>Postres</h3></a>
+                </a>
+                <a href="/products#" class="box b5">
                     <img id="facturas" src="./facturas.png" alt="Una foto de nuestras Facturas"/>
                     <a href="/products#"><h3>Facturas</h3></a>
-                </div>
-                <div class="box b6">
+                </a>
+                <a href="/products#" class="box b6">
                     <img id="pastel" src="./pastel.png" alt="Una foto de nuestros Cupcakes"/>
-                    <Link to="/products#"><h3>Pasteles</h3></Link>
-                </div>
+                    <a href="/products#"><h3>Pasteles</h3></a>
+                </a>
             </section>
                 
                 
