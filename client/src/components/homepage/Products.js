@@ -89,30 +89,30 @@ export default function Products(props) {
             <p id="products#">Contamos con una amplia variedad de tortas para todos los gustos, además de tortas, ofrecemos una gran variedad de dulces.</p>
             <p>Elaboramos galletas, cupcakes, macarros, postres y muchas más delicias. ¡No te quedes con el antojo!</p>
             <section class="flex-container">
-                <div class="box b1">
-                    <img id="cupcakes" src="./cupcakes.png" alt="Una foto de nuestros Cupcakes"/>
-                    <a href="/products#"><h3>Cupcakes</h3></a>
-                </div>
-                <div class="box b2">
+                <a href="/products#" class="box b1">
+                <img id="cupcakes" src="./cupcakes.png" alt="Una foto de nuestros Cupcakes"/>
+                    <h3>Cupcakes</h3>
+                </a>
+                <a href="/products#" class="box b2">
                     <img id="galletitas" src="./galletitas.png" alt="Una foto de nuestras Cookies"/>
                     <a href="/products#"><h3>Galletitas</h3></a>
-                </div>
-                <div class="box b3">
+                </a>
+                <a href="/products#" class="box b3">
                     <img id="macarrons" src="./macarrons.png" alt="Una foto de nuestros Macarrons"/>
                     <a href="/products#"><h3>Macarrons</h3></a>
-                </div>
-                <div class="box b4">
+                </a>
+                <a href="/products#" class="box b4">
                     <img id="postres" src="./postres.png" alt="Una foto de nuestros Postres"/>
                     <a href="/products#"><h3>Postres</h3></a>
-                </div>
-                <div class="box b5">
+                </a>
+                <a href="/products#" class="box b5">
                     <img id="facturas" src="./facturas.png" alt="Una foto de nuestras Facturas"/>
                     <a href="/products#"><h3>Facturas</h3></a>
-                </div>
-                <div class="box b6">
+                </a>
+                <a href="/products#" class="box b6">
                     <img id="pastel" src="./pastel.png" alt="Una foto de nuestros Cupcakes"/>
                     <a href="/products#"><h3>Pasteles</h3></a>
-                </div>
+                </a>
             </section>
                 
                 
