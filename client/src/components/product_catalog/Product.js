@@ -8,13 +8,15 @@ const StyledDiv= styled.div`
     border: 1px solid black;
     transform: rotateY(${({showFront}) => showFront ? 0 : 180}deg);
     transform-style:  preserve-3d;
-    transition: transform 1s ease-in-out;
+    transition: transform 0.5s ease-in-out;
 
     img {
         width: 100%;
         border: 1px solid black;
     }
-
+    .wrapper {
+        height: 170px;
+    }
     .front {
         height: 300px;
         width: 200px;
@@ -46,6 +48,15 @@ const StyledDiv= styled.div`
         height: 10%;
         border: 1px solid var(--link-color);
         border-radius: 10px;
+        color: #262626;
+        font-weight: bold;
+        font-size: 14px;
+        transition: background-color 0.2s linear, color 0.2s linear;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #333333;
+        color: white;
     }
 
 `;
@@ -55,7 +66,7 @@ export default function Product(props) {
     return (
         <StyledDiv showFront={showFront} className="flipCard">
             <div className="front">
-                <img src={img} alt={alt} />
+                <div className="wrapper"><img src={img} alt={alt} /></div>
                 <h3>{name}</h3>
                 <button onClick={() => setShowFront(!showFront)}>Ver Más</button>
             </div>
