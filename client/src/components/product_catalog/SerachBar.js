@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -45,16 +46,23 @@ const StyledForm= styled.form`
 
 export default function SearchBar(props) {
     const [searchParams, setSearchParams]= useSearchParams();
+    const [inputValue, setInputValue]= useState(searchParams.has('name') ? searchParams.get('name') : "");
     function handleSubmit(event) {
         event.preventDefault();
-        setSearchParams(new URLSearchParams(new FormData(event.target)));
+        const [key, value]= (new FormData(event.target)).entries().next().value;
+        if (value) {
+            searchParams.set(key, value);
+        } else {
+            searchParams.delete(key);
+        }
+        setSearchParams(searchParams);
     }
     return (
         <StyledForm onSubmit={handleSubmit}>
             <label htmlFor="searchbox">
                 <span className="hide">Search product</span>
             </label>
-            <input type="search" name="name" id="searchbox" placeholder="Search product" />
+            <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} type="search" name="name" id="searchbox" placeholder="Search product" />
             <button type="submit"><i className="fa-solid fa-magnifying-glass"></i></button>
         </StyledForm>
     );

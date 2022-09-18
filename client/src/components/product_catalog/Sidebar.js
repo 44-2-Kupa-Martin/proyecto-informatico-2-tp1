@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
-import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import { useScrollbarWidth } from "../../myCustomHooks";
+import Checkbox from "./sidebar_components/Checkbox";
 
 const StyledAside= styled.aside`
     position: sticky;
@@ -34,6 +35,8 @@ const StyledAside= styled.aside`
         font-family: var(--main-font);
         border: 1px solid black;
         padding: 8px;
+        max-width: 200px;
+        margin: 0 auto 0 auto;
     }
     h4 {
         font-family: var(--main-font);
@@ -47,77 +50,7 @@ const StyledAside= styled.aside`
         padding: 0;
         
     }
-    li {
-        display: flex;
-        align-items: flex-end;
-        margin: 5px 0 5px 0;
-        
-    }
     
-    ${/* http://csscheckbox.com/css-checkbox-generator.php */''}
-
-    .css-checkbox { 
-        position: absolute; 
-        overflow: hidden; 
-        clip: rect(0 0 0 0); 
-        height: 1px; 
-        width: 1px; 
-        margin: -1px; 
-        padding: 0; 
-        border: 0; 
-    }
-    .css-checkbox + label { 
-        user-select: none;
-        position: relative; 
-        font-size: 12px; 
-        cursor: pointer; 
-        display: inline-flex; 
-        align-items: center; 
-        height: 16px; 
-        color: rgb(0, 0, 0); 
-    }
-    .css-checkbox + label::before { 
-        content: " "; 
-        display: inline-block; 
-        vertical-align: middle; 
-        margin-right: 3px; 
-        width: 12px; 
-        height: 12px; 
-        background-color: white; 
-        border-width: 1px; 
-        border-style: solid; 
-        border-color: rgb(0,0,0);
-        border-radius: 2px; 
-        box-shadow: none; 
-    }
-    .css-checkbox + label::after { 
-        content: " "; 
-        background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj48cGF0aCBmaWxsPSIjMDAwMDAwIiBkPSJNMTczLjg5OCA0MzkuNDA0bC0xNjYuNC0xNjYuNGMtOS45OTctOS45OTctOS45OTctMjYuMjA2IDAtMzYuMjA0bDM2LjIwMy0zNi4yMDRjOS45OTctOS45OTggMjYuMjA3LTkuOTk4IDM2LjIwNCAwTDE5MiAzMTIuNjkgNDMyLjA5NSA3Mi41OTZjOS45OTctOS45OTcgMjYuMjA3LTkuOTk3IDM2LjIwNCAwbDM2LjIwMyAzNi4yMDRjOS45OTcgOS45OTcgOS45OTcgMjYuMjA2IDAgMzYuMjA0bC0yOTQuNCAyOTQuNDAxYy05Ljk5OCA5Ljk5Ny0yNi4yMDcgOS45OTctMzYuMjA0LS4wMDF6Ii8+PC9zdmc+"); 
-        background-repeat: no-repeat; 
-        background-size: 8px 8px; 
-        background-position: center center; 
-        position: absolute; 
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        margin-left: 0px; 
-        left: 0px; 
-        top: 0px; 
-        text-align: center; 
-        background-color: transparent; 
-        font-size: 10px; 
-        height: 14px; 
-        width: 14px; 
-    }
-
-    .css-checkbox:checked + label::before {
-        border-color: rgb(204, 204, 204); 
-    }
-
-    .css-checkbox:checked + label::after {
-        display: none;
-    }
-
     @media (max-width: ${(props) => 419 + props.scrollbarWidth}px) {
         position: static;
 
@@ -130,77 +63,48 @@ const StyledAside= styled.aside`
 `;
 
 export default function Sidebar(props) {
-    const [searchParams, setSearchParams]= useSearchParams();
-    function handleChange(e) {
-        setSearchParams(new URLSearchParams(new FormData(e.target.form)));
+    // --Function Definitions--
+    function handleChange(event) {
+        const newSearchParams= new URLSearchParams(new FormData(event.target.form));
+        if (searchParams.has('name')) {
+            newSearchParams.set('name', searchParams.get('name'));
+        }
+        setSearchParams(newSearchParams);
+        if (window.innerWidth > 419 + scrollbarWidth) props.scroll();
     }
+    //
+
+    // --Function Body---
+    const [searchParams, setSearchParams]= useSearchParams();
+    const scrollbarWidth= useScrollbarWidth();
     return (
-        <StyledAside scrollbarWidth={useScrollbarWidth()}>
-            <span className="route"><span className="unfocused"><Link to="/#">Inicio</Link> / </span>Productos</span>
+        <StyledAside id="sidebar" scrollbarWidth={scrollbarWidth}>
+            <span className="route">
+                <span className="unfocused"><Link to="/#">Inicio</Link> / </span>
+                Productos
+            </span>
             <div className="filter">
                 <h4>Categoria</h4>
                 <form id="filter" onChange={handleChange}>
                     <ul>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="cupcakes" 
-                                name="filterCupcakes" 
-                                form="filter"
-                            />
-                            <label htmlFor="cupcakes">Cupcakes</label>
-                        </li>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="cakes" 
-                                name="filterCakes" 
-                                form="filter"
-                            />
-                            <label htmlFor="cakes">Pasteles</label>
-                        </li>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="cookies" 
-                                name="filterCookies" 
-                                form="filter"
-                            />
-                            <label htmlFor="cookies">Cookies</label>
-                        </li>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="macarons" 
-                                name="filterMacarons" 
-                                form="filter"
-                            />
-                            <label htmlFor="macarons">Macarrones</label>
-                        </li>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="desserts" 
-                                name="filterDesserts" 
-                                form="filter"
-                            />
-                            <label htmlFor="desserts">Postres</label>
-                        </li>
-                        <li>
-                            <input 
-                                className="css-checkbox" 
-                                type="checkbox" 
-                                id="croissants" 
-                                name="filterCroissants" 
-                                form="filter"
-                            />
-                            <label htmlFor="croissants">Facturas</label>
-                        </li>
+                        <Checkbox id="cupcakes" name="filterCupcakes">
+                            Cupcakes
+                        </Checkbox>
+                        <Checkbox id="cakes" name="filterCakes">
+                            Pasteles
+                        </Checkbox>
+                        <Checkbox id="cookies" name="filterCookies">
+                            Cookies
+                        </Checkbox>
+                        <Checkbox id="macarons" name="filterMacarons">
+                            Macarrones
+                        </Checkbox>
+                        <Checkbox id="desserts" name="filterDesserts">
+                            Postres
+                        </Checkbox>
+                        <Checkbox id="croissants" name="filterCroissants">
+                            Facturas
+                        </Checkbox>
                     </ul>
                 </form>                
             </div>
@@ -208,31 +112,3 @@ export default function Sidebar(props) {
     );
 }
 
-function useScrollbarWidth() {
-    const didCompute = useRef(false);
-    const widthRef = useRef(0);
-  
-    if (didCompute.current) return widthRef.current;
-  
-    // Creating invisible container
-    const outer = document.createElement('div');
-    outer.style.visibility = 'hidden';
-    outer.style.overflow = 'scroll'; // forcing scrollbar to appear
-    outer.style.msOverflowStyle = 'scrollbar'; // needed for WinJS apps
-    document.body.appendChild(outer);
-  
-    // Creating inner element and placing it in the container
-    const inner = document.createElement('div');
-    outer.appendChild(inner);
-  
-    // Calculating difference between container's full width and the child width
-    const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
-  
-    // Removing temporary elements from the DOM
-    outer.parentNode.removeChild(outer);
-  
-    didCompute.current = true;
-    widthRef.current = scrollbarWidth;
-  
-    return scrollbarWidth;
-};
