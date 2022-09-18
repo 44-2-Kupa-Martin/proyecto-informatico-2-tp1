@@ -8,16 +8,14 @@ import Product from "./Product";
 
 const StyledDiv= styled.div`
     align-self: stretch;
-    flex-basis: 200px;
+    flex-basis: 220px;
     flex-grow: 99999;
 
     .productList {
-        margin: 0 auto 0 auto;
-        max-width: 660px;
-        display: inline-flex;
-        width: fit-content;
-        flex-wrap: wrap;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(1px, 220px));
+        grid-auto-flow: row;
+        justify-content: center;
     }
 `;
 export default function Catalog(props) {

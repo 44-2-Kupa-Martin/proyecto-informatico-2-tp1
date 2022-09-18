@@ -51,7 +51,7 @@ const StyledAside= styled.aside`
         
     }
     
-    @media (max-width: ${(props) => 419 + props.scrollbarWidth}px) {
+    @media (max-width: ${(props) => 429 + props.scrollbarWidth}px) {
         position: static;
 
         .filter {
@@ -70,7 +70,7 @@ export default function Sidebar(props) {
             newSearchParams.set('name', searchParams.get('name'));
         }
         setSearchParams(newSearchParams);
-        if (window.innerWidth > 419 + scrollbarWidth) props.scroll();
+        if (window.innerWidth > 429 + scrollbarWidth) props.scroll();
     }
     //
 

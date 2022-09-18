@@ -1,4 +1,3 @@
-import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import Header from "../components/product_catalog/Header";
 import Footer from "../components/Footer";
@@ -10,6 +9,8 @@ const StyledDiv= styled.div`
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 `;
 export default function ProductCatalog(props) {
