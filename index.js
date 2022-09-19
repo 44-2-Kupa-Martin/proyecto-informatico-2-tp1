@@ -2,6 +2,7 @@ require('dotenv').config();
 const express= require('express');
 const path= require('path');
 const mysql= require('mysql2/promise');
+const cors= require('cors');
 
 //Connect to DB
 const dbConfig= {
@@ -30,6 +31,7 @@ const app= express();
 const PORT= process.env.PORT ?? 4000;
 
 //Routes
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'build')));
 
@@ -37,8 +39,9 @@ app.get(/^(?!\/api\/).*$/ /* match everything except routes that start with "/ap
     res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-app.get('/api/messages', (req, res) => {
-    res.send(`lol`);
+app.get('/api/products', async(req, res) => {
+    const [rows]= await dbConnection.query('SELECT * FROM products');
+    res.json(rows);
 });
 
 app.post('/api/messages', async(req, res) => {

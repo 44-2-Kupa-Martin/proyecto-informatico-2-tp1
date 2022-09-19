@@ -48,15 +48,19 @@ export default function Catalog(props) {
     useEffect(() => {
         //if 404 setFetchError. if success setProducts
         (async() => {
-            const ok= [
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'bruh', description: 'u dead1', type: 'cupcakes'},
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'bruh', description: 'u dead2', type: 'cakes'},
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'nice', description: 'u dead3', type: 'cookies'},
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'bruh nice', description: 'u dead4', type: 'desserts'},
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'bruh', description: 'u dead5', type: 'cupcakes'},
-                {img:'./Balcarce.jpg', alt: 'yo mama', name: 'bruh', description: 'u dead6', type: 'cupcakes'}
-            ];
-            setProducts(ok);
+            try {
+                const req= await fetch(`http://${window.location.hostname}:4000/api/products`);
+                const reqBody= req.json();
+                if (req.ok) {
+                    setProducts(await reqBody);
+                } else {
+                    setFetchError(true);
+                    console.log(req.status);
+                }
+            } catch (error) {
+                setFetchError(true)
+                console.log(error);
+            }
         })();
     }, []);
 
@@ -66,7 +70,7 @@ export default function Catalog(props) {
             <div className="productList">
                 {(() => {
                     if (products) {
-                        const filteredProducts= filter(products).map((product) => <Product product={product} />);
+                        const filteredProducts= filter(products).map((product) => <Product key={product.id} product={product} />);
                         return filteredProducts.length ? filteredProducts : <EmptyResult />
                     } else if (fetchError) {
                         return <CouldntFetch />
