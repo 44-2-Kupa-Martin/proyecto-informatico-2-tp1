@@ -1,6 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
-
+// --CSS (StyledListItem)--
 const StyledListItem= styled.li`
     display: flex;
     align-items: flex-end;
@@ -73,6 +73,7 @@ const StyledListItem= styled.li`
 `;
 
 export default function Checkbox(props) {
+    // --Component Body--
     const [searchParams]= useSearchParams();
     return (
         <StyledListItem>

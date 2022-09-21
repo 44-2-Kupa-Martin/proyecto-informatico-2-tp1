@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-
+// --CSS (StyledDiv)--
 const StyledDiv= styled.div`
     height: 300px;
     width: 200px;
@@ -61,6 +61,7 @@ const StyledDiv= styled.div`
 
 `;
 export default function Product(props) {
+    // --Component Body--
     const [showFront, setShowFront]= useState(true);
     const {img, alt, name, description}= props.product;
     return (

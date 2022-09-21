@@ -3,7 +3,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import { useSearchParams } from "react-router-dom";
 import { useScrollbarWidth } from "../../myCustomHooks";
 import Checkbox from "./sidebar_components/Checkbox";
-
+// --CSS (StyledAside)--
 const StyledAside= styled.aside`
     position: sticky;
     top: 0px;
@@ -64,17 +64,25 @@ const StyledAside= styled.aside`
 
 export default function Sidebar(props) {
     // --Function Definitions--
+
+    /**
+     * Updates the search params when a checkbox is clicked.
+     * @param {Event} event 
+     */
     function handleChange(event) {
+        // Instantiate a new search params with the current form state 
         const newSearchParams= new URLSearchParams(new FormData(event.target.form));
+        // The name param is not controlled by this form, so it must be set manually
         if (searchParams.has('name')) {
             newSearchParams.set('name', searchParams.get('name'));
         }
         setSearchParams(newSearchParams);
+        // If not on mobile, scroll to top
         if (window.innerWidth > 429 + scrollbarWidth) props.scroll();
     }
     //
 
-    // --Function Body---
+    // --Component Body---
     const [searchParams, setSearchParams]= useSearchParams();
     const scrollbarWidth= useScrollbarWidth();
     return (

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 // Kupa
-const StyledServices= styled.section`
+// --CSS (StyledSection)--
+const StyledSection= styled.section`
     /* section */
     display: block;
     width: 100%;
@@ -45,14 +46,15 @@ const StyledServices= styled.section`
 `;
 
 export default function Services(props) {
+    // --Component Body--
     return (
-        <StyledServices id={props.id}>
+        <StyledSection id={props.id}>
             <h1>Servicios</h1>
             <div>
                 <img src="./collage-servicios.jpg" alt="Un collage de nuestros productos" />
                 <p id="collage">En Mi Solcito tenemos una amplia variedad de tortas y postres, ofreciendo varios servicios de repostería.<br /> Contamos con todo tipo de decorados, desde logos de compañías, escudos de escuelas, hasta personajes infantiles y de caricaturas, o cualquier otro diseño que pueda ser plasmado en un pastel o postre. Nuestros diseños pueden ser dibujados, realzados o con figurines. Además, contamos con una diversa variedad de sabores para los biscochos y rellenos para las tortas y postres.</p>
             </div>
             <p>Cubrimos cualquier tipo de eventos: Bodas, Cumpleaños, Baby Shower, Aniversarios, Empresariales, o cualquier otro tipo de festividad.   Los pedidos pueden ser realizados vía internet o en nuestras sucursales, donde podrás encontrar mesas para disfrutar nuestros postres en el local.</p>
-        </StyledServices>
+        </StyledSection>
     )
 }

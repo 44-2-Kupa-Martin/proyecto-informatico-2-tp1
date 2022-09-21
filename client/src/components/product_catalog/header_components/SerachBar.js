@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 
-
+// --CSS (StyledForm)--
 const StyledForm= styled.form`
     width: 50%;
     height: 40px;
@@ -45,18 +45,34 @@ const StyledForm= styled.form`
 `;
 
 export default function SearchBar(props) {
-    const [searchParams, setSearchParams]= useSearchParams();
-    const [inputValue, setInputValue]= useState(searchParams.has('name') ? searchParams.get('name') : "");
+    // --Function Definitions--
+
+    /**
+     * Gets the search query and, if it has a value, appends it to the current search params.
+     * @param {SubmitEvent} event
+     */
     function handleSubmit(event) {
         event.preventDefault();
+
+        // Get the first key value pair from the form that triggered the event. It is assumed said pair corresponds to the search query
         const [key, value]= (new FormData(event.target)).entries().next().value;
+
+        // If the value is not an empty string
         if (value) {
+            // Append it
             searchParams.set(key, value);
         } else {
+            // Remove the previous value (if there is). This is so that an empty query overrides the previous one
             searchParams.delete(key);
         }
         setSearchParams(searchParams);
     }
+    //
+    
+    // --Component Body--
+    const [searchParams, setSearchParams]= useSearchParams();
+    const [inputValue, setInputValue]= useState(searchParams.has('name') ? searchParams.get('name') : "");
+    
     return (
         <StyledForm onSubmit={handleSubmit}>
             <label htmlFor="searchbox">

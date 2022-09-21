@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Navbar from "../Navbar";
-import SearchBar from "./SerachBar";
-
+import SearchBar from "./header_components/SerachBar";
+// --CSS (StyledHeader)--
 const StyledHeader= styled.header`
     .banner {
         background-image: url('./productos-background.jpg');
@@ -23,6 +23,7 @@ const StyledHeader= styled.header`
 `;
 
 export default function Header(props) {
+    // --Component body--
     return (
         <StyledHeader>
             <Navbar />

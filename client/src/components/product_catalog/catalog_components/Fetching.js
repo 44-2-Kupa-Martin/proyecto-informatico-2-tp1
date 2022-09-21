@@ -1,4 +1,5 @@
 export default function Fetching(props) {
+    // --Component Body--
     return (
         <div>
             <p>fetching</p>
