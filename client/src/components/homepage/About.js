@@ -39,17 +39,21 @@ const StyledAbout= styled.section`
     }
     div#nosotros2{
         display: flex;
-        height: fit-content;
+        height: auto;
         flex-flow: row;
         flex-wrap: nowrap;
         align-items: flex-start;
+        
     }
     img#local2 {
-        width: 442px;
-        height: 338px;
+        height: auto;   
+        max-width: 500px;
+        max-height: 500px;
         margin: 0 10px 10px 0;
         flex-basis: 0;
         flex-grow: 1;
+        padding-left: 10px;
+        align-self: flex-end;
     }   
     p#texto1{
         height: fit-content;
