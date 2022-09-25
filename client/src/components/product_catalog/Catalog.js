@@ -75,7 +75,7 @@ export default function Catalog(props) {
         // The IIFE is necessary because the useEffect's callback cannot be an async function 
         (async() => {
             try {
-                const req= await fetch(`http://${window.location.hostname}:4000/api/products`);
+                const req= await fetch(`http://${window.location.hostname}/api/products`);
                 const reqBody= req.json();
                 if (req.ok) {
                     setProducts(await reqBody);
