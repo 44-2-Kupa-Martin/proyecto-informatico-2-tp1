@@ -66,7 +66,7 @@ const StyledContact= styled.section`
     }
     
 `;
-export default function Contact(props) {
+export default function Contact(props) {    
     return (
         <StyledContact id={props.id}>
             <h1>Contacto</h1>
