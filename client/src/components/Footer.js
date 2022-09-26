@@ -21,6 +21,7 @@ const StyledFooter= styled.footer`
     }
     label{
       display: block;
+      font-family: 'Calibri';
     }
     div#Footer-loco{
         display: flex;
@@ -35,9 +36,11 @@ const StyledFooter= styled.footer`
       padding-left: 10px;
       padding-right: 10px;
       margin-left: 50px;
+      font-family: 'Calibri';
     }
     li{
       margin-left:10px ;
+      font-family: 'Calibri';
     }
     img{
       height: 10%;

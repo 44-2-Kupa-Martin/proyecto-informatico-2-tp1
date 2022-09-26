@@ -5,14 +5,14 @@ import { HashLink as Link } from "react-router-hash-link";
 const StyledProducts = styled.section`
     h1 {
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-weight: 600;
         color: #404040;
     }
 
     p {
         text-align: justify;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-size: 1.3rem;
         color: #595959;
     }

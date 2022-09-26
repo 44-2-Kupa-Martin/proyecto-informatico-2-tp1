@@ -6,13 +6,13 @@ const StyledAbout= styled.section`
     */
     h1 {
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-weight: 600;
         color: #404040;
     }
     p{
         text-align: justify;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-size: clamp(10px, 2.02vw, 20px);
         color: #595959;
         vertical-align: auto;
@@ -61,6 +61,7 @@ const StyledAbout= styled.section`
         margin: 0;
         flex-basis: 0;
         flex-grow: 1;
+        
     }
 `;
 

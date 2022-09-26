@@ -3,13 +3,13 @@ import styled from "styled-components";
 const StyledContact= styled.section`
     h1 {
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-weight: 600;
         color: #404040;
     }
     p{
         text-align: justify;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-size: clamp(10px, 2.02vw, 20px);
         color: #595959;
         vertical-align: auto;
@@ -48,6 +48,7 @@ const StyledContact= styled.section`
     }
     label{
         display: block;
+        font-family: 'Calibri';
     }
     div#moyajumpscare div{
         width:45%;
@@ -60,11 +61,22 @@ const StyledContact= styled.section`
         border-style: none;
         border-bottom: solid 1px;
         margin-bottom: 10px;
+
     }
     div#lol2{
         padding-bottom: 20px;
     }
-    
+    button {
+        background-color: grey;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 16px;
+        border-radius: 50%;
+        font-family: 'Calibri';
+    }
 `;
 export default function Contact(props) {    
     return (

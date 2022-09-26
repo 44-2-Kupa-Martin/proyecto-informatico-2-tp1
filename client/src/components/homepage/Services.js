@@ -9,7 +9,7 @@ const StyledSection= styled.section`
 
     h1 {
         text-align: center;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-weight: 600;
         color: #404040;
     }
@@ -23,7 +23,7 @@ const StyledSection= styled.section`
     }
     p {
         text-align: justify;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Calibri';
         font-size: clamp(10px, 2.02vw, 20px);
         color: var(--main-text-color);
     }
