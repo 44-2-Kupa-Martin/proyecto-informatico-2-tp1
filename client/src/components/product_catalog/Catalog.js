@@ -93,7 +93,7 @@ export default function Catalog(props) {
     return (
         <StyledDiv>
             {props.scrollTo}
-            <div className="productList">
+            <div className={products ? "productList" : "feedbackContainer"}>
                 {// This IIFE determines what to show to the user and handles fetch errors
                 (() => {
                     // If the products were successfully fetched 

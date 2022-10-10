@@ -10,6 +10,7 @@ const StyledSection= styled.section`
     h1 {
         text-align: center;
         font-family: 'Calibri';
+        font-size: var(--responsive-title-size);
         font-weight: 600;
         color: #404040;
     }
@@ -24,22 +25,19 @@ const StyledSection= styled.section`
     p {
         text-align: justify;
         font-family: 'Calibri';
-        font-size: clamp(10px, 2.02vw, 20px);
-        color: var(--main-text-color);
     }
 
     p#collage {
         height: fit-content;
-        min-width: 150px;
         margin: 0;
-        flex-basis: 0;
-        flex-grow: 1;
+        padding: 5px;
+        font-size: clamp(1rem, 2.18vw, 22px);
+        flex-basis: 305px;
+        flex-grow: 9999999;
     }
     
     img {
-        min-width: 400px;
-        margin: 0 10px 10px 0;
-        flex-basis: 0;
+        width: 55%;
         flex-grow: 1;
     }
 
@@ -52,6 +50,7 @@ export default function Services(props) {
             <h1>Servicios</h1>
             <div>
                 <img src="./collage-servicios.jpg" alt="Un collage de nuestros productos" />
+                
                 <p id="collage">En Mi Solcito tenemos una amplia variedad de tortas y postres, ofreciendo varios servicios de repostería.<br /> Contamos con todo tipo de decorados, desde logos de compañías, escudos de escuelas, hasta personajes infantiles y de caricaturas, o cualquier otro diseño que pueda ser plasmado en un pastel o postre. Nuestros diseños pueden ser dibujados, realzados o con figurines. Además, contamos con una diversa variedad de sabores para los biscochos y rellenos para las tortas y postres.</p>
             </div>
             <p>Cubrimos cualquier tipo de eventos: Bodas, Cumpleaños, Baby Shower, Aniversarios, Empresariales, o cualquier otro tipo de festividad.   Los pedidos pueden ser realizados vía internet o en nuestras sucursales, donde podrás encontrar mesas para disfrutar nuestros postres en el local.</p>

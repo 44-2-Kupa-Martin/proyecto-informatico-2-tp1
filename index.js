@@ -40,8 +40,13 @@ app.get(/^(?!\/api\/).*$/ /* match everything except routes that start with "/ap
 });
 
 app.get('/api/products', async(req, res) => {
-    const [rows]= await dbConnection.query('SELECT * FROM products');
-    res.json(rows);
+    try {
+        const [rows]= await dbConnection.query('SELECT * FROM products');
+        res.json(rows);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({err: "Could not fetch from database"});
+    }
 });
 
 app.post('/api/messages', async(req, res) => {
@@ -55,7 +60,7 @@ app.post('/api/messages', async(req, res) => {
 
     try {
         await dbConnection.execute('INSERT INTO userMessages (name, surname, email, message, ip) VALUES (?, ?, ?, ?, ?)', [name, surname, email, message, req.ip]);
-        res.send();
+        res.status(201).send();
     } catch (error) {
         //Handle ER_DATA_TOO_LONG
         if (error.code === 'ER_DATA_TOO_LONG') {
@@ -63,7 +68,7 @@ app.post('/api/messages', async(req, res) => {
             return;
         }
         console.log(error);
-        res.status(500).json({err: "The message was received but was not saved."});
+        res.status(500).json({err: "The message was received but was not saved"});
     }
 });
 
