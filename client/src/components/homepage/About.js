@@ -25,7 +25,8 @@ const StyledAbout= styled.section`
         align-items: flex-start;
     }
     img#local1 {
-        min-width: 400px;
+        width: 40%;
+        height: 40%;
         margin: 0 10px 10px 0;
         flex-basis: 0;
         flex-grow: 1;
@@ -47,8 +48,8 @@ const StyledAbout= styled.section`
     }
     img#local2 {
         height: auto;   
-        max-width: 500px;
-        max-height: 500px;
+        width: 51%;
+        height: 51%;
         margin: 0 10px 10px 0;
         flex-basis: 0;
         flex-grow: 1;
