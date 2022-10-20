@@ -30,7 +30,7 @@ const StyledContact= styled.section`
     img#primagen{
         max-width: 50%;
         width: 50%;
-        height: fit-content;
+        height: 50%;
         margin: 0 10px 10px 0;
         flex-basis: 0;
         flex-grow: 1;
@@ -49,6 +49,7 @@ const StyledContact= styled.section`
     label{
         display: block;
         font-family: 'Calibri';
+        margin-bottom: 10px;
     }
     div#moyajumpscare div{
         width:45%;
@@ -78,14 +79,30 @@ const StyledContact= styled.section`
         font-family: 'Calibri';
     }
 `;
-export default function Contact(props) {    
+export default function Contact(props) {   
+    
+    function handlesubmit (event) {
+        event.preventDefault()
+        const form = document.getElementById('form')
+        const loca = new FormData(form);
+
+        fetch('http://localhost:3306/api/messages',{
+            method: "POST",
+            body: loca,
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err));
+
+    }
+
     return (
         <StyledContact id={props.id}>
             <h1>Contacto</h1>
             <div id="lol">
                 <img src="./draw.png" alt="contacto"id="primagen"/>
                 
-                <form onSubmit={(event)=>event.preventDefault()} className="mybox" >
+                <form id='form' onSubmit={handlesubmit}className="mybox" >
                     <div id="moyajumpscare">
                         <div>
                             <label htmlFor="name">Nombre</label> 
@@ -108,4 +125,22 @@ export default function Contact(props) {
             </div>
         </StyledContact>
     )
+
+ 
+    
 }
+//form.addEventListener('submit', function(event){
+  //  event.preventDefault();
+        
+   // const loca = new FormData(form);
+
+ //   console.log (loca)
+
+ //   fetch('http://localhost:3306/api/messages',{
+  //      method: "POST",
+  //      body: loca,
+  //  })
+   // .then(res => res.json())
+   // .then(data => console.log(data))
+   // .catch(err => console.log(err));
+//})
