@@ -83,12 +83,12 @@ export default function Contact(props) {
     
     function handlesubmit (event) {
         event.preventDefault()
-        const form = document.getElementById('form')
-        const loca = new FormData(form);
-
-        fetch('http://localhost:3306/api/messages',{
+        const form = new FormData(event.target)
+        const Chano = new URLSearchParams(form)
+      
+        fetch(`http://${window.location.hostname}/api/messages`,{
             method: "POST",
-            body: loca,
+            body: Chano,
         })
         .then(res => res.json())
         .then(data => console.log(data))
@@ -102,7 +102,7 @@ export default function Contact(props) {
             <div id="lol">
                 <img src="./draw.png" alt="contacto"id="primagen"/>
                 
-                <form id='form' onSubmit={handlesubmit}className="mybox" >
+                <form onSubmit={handlesubmit} className="mybox" >
                     <div id="moyajumpscare">
                         <div>
                             <label htmlFor="name">Nombre</label> 
