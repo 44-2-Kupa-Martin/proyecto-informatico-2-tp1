@@ -38,8 +38,9 @@ const StyledContact= styled.section`
     }
     .mybox{
         border: solid 1px black;
-        margin: 10px 10px 10px 10px;
+        margin: 0px 10px 10px 10px;
         padding: 10px;
+        height: 322px;
     }
     div#moyajumpscare{
         display: flex;
@@ -47,7 +48,7 @@ const StyledContact= styled.section`
         justify-content: space-between;
     }
     label{
-        display: block;
+       display: block;
         font-family: 'Calibri';
         margin-bottom: 10px;
     }
@@ -68,15 +69,22 @@ const StyledContact= styled.section`
         padding-bottom: 20px;
     }
     button {
-        background-color: grey;
+        margin-top: 50px;
         border: none;
         color: white;
-        padding: 20px;
         text-align: center;
         text-decoration: none;
         font-size: 16px;
-        border-radius: 50%;
         font-family: 'Calibri';
+        background: #393939;
+        border-radius: 62.5px;
+        width: 130px;
+        height: 30px;
+    }
+    button:hover {
+        background-color: rgb(197, 123, 112);
+        text-align: center;
+        transition: all 0.5s ease-out;
     }
 `;
 export default function Contact(props) {   
@@ -106,19 +114,19 @@ export default function Contact(props) {
                     <div id="moyajumpscare">
                         <div>
                             <label htmlFor="name">Nombre</label> 
-                            <input type="text" id="name" name="name"></input>
+                            <input required type="text" id="name" name="name"></input>
                         </div>   
                         <div>
                             <label htmlFor="surname">apellido</label> 
-                            <input type="text" id="surname" name="surname"></input>
+                            <input required type="text" id="surname" name="surname"></input>
                         </div>
                     </div>    
                     <div id="lol2">
                         <label id="email" htmlFor="email">Email *</label> 
-                        <input type="text" id="email" name="email"></input>
+                        <input required type="text" id="email" name="email"></input>
 
                         <label htmlFor="escriba">Escriba un Mensaje </label> 
-                        <input type="text" id="escriba" name="escriba"></input> 
+                        <input required type="text" id="escriba" name="escriba"></input> 
                     </div>
                     <button type="submit">Enviar</button>
                 </form>
