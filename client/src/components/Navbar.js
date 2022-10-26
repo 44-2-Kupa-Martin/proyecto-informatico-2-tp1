@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
+import { useState } from "react";
 
 const StyledNavbar= styled.nav`
     /* nav */
@@ -8,6 +9,15 @@ const StyledNavbar= styled.nav`
     width: 100%;
     flex-flow: row nowrap;
     justify-content: ${props => props.noLogo ? 'flex-end' : 'space-between'};
+    position: fixed;
+    background-color: white;
+    top: 0;
+    left: 0;
+    z-index: 1;
+
+    button {
+        display: none;
+    }
 
     a.logo {
         display: inline-flex;
@@ -71,11 +81,45 @@ const StyledNavbar= styled.nav`
     li:hover>a {
         color: black;
     }
+
+    @media (max-width: 630px) {
+        a.logo {
+            margin: auto;
+        }
+        button {
+            display: block;
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 100%;
+            z-index: 1;
+        }
+        ul {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            transition: background-color 0.2s linear, opacity 0.2s linear;
+            visibility: ${props => props.showMenu ? "visible" : "hidden"};
+            background-color: rgba(0, 255, 255, ${props => props.showMenu ? "0.8" : "0"});
+            opacity: ${props => props.showMenu ? "1" : "0"};
+            margin: 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+        }
+        ul li {
+            display: block;
+            width: 100%;
+        }
+    }
 `;
 
 export default function Navbar(props) {
+    const [showMenu, setShowMenu]= useState(false);
     return (
-        <StyledNavbar height={props.height} noLogo={props.noLogo}>
+        <StyledNavbar height={props.height} noLogo={props.noLogo} showMenu={showMenu}>
             {props.noLogo ? 
             <></>
             :
@@ -83,11 +127,12 @@ export default function Navbar(props) {
                 <img src="./favicon.ico" alt="Logo" />
                 <h1>Mi Solcito</h1>
             </Link>}
+            <button onClick={() => setShowMenu(!showMenu)}>hello</button>
             <ul>
-                <li><Link to="/products#">Productos</Link></li>
-                <li><Link to="/#about">Nosotros</Link></li>
-                <li><Link to="/#services">Servicios</Link></li>
-                <li><Link to="/#contact">Contacto</Link></li>
+                <li onClick={() => setShowMenu(false)}><Link to="/products#">Productos</Link></li>
+                <li onClick={() => setShowMenu(false)}><Link to="/#about">Nosotros</Link></li>
+                <li onClick={() => setShowMenu(false)}><Link to="/#services">Servicios</Link></li>
+                <li onClick={() => setShowMenu(false)}><Link to="/#contact">Contacto</Link></li>
             </ul>
         </StyledNavbar>
     )
