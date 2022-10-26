@@ -1,19 +1,68 @@
 import styled from "styled-components";
 import { HashLink as Link } from "react-router-hash-link";
-import { useState } from "react";
+import { useCallback, useState } from "react";
+import { useEffect } from "react";
 
 const StyledNavbar= styled.nav`
     /* nav */
     display: flex;
-    height: ${props => props.height ?? '70px'};
+    height: ${props => props.height};
     width: 100%;
     flex-flow: row nowrap;
     justify-content: ${props => props.noLogo ? 'flex-end' : 'space-between'};
     position: fixed;
     background-color: white;
-    top: 0;
+    transition: top 0.2s ease;
+    top: ${props => props.hideNav ? `-${props.height}` : '0px'};
     left: 0;
     z-index: 1;
+    
+    //button animation
+    .menu {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        padding: 0;
+    }
+    .menu svg {
+        height: 80%;
+    }
+    .line {
+      fill: none;
+      stroke: black;
+      stroke-width: 6;
+      transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+        stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .line1 {
+      stroke-dasharray: 60 207;
+      stroke-width: 6;
+    }
+    .line2 {
+      stroke-dasharray: 60 60;
+      stroke-width: 6;
+    }
+    .line3 {
+      stroke-dasharray: 60 207;
+      stroke-width: 6;
+    }
+    .opened .line1 {
+      stroke-dasharray: 90 207;
+      stroke-dashoffset: -134;
+      stroke-width: 6;
+    }
+    .opened .line2 {
+      stroke-dasharray: 1 60;
+      stroke-dashoffset: -30;
+      stroke-width: 6;
+    }
+    .opened .line3 {
+      stroke-dasharray: 90 207;
+      stroke-dashoffset: -134;
+      stroke-width: 6;
+    }
+
 
     button {
         display: none;
@@ -86,12 +135,15 @@ const StyledNavbar= styled.nav`
         a.logo {
             margin: auto;
         }
-        button {
-            display: block;
-            position: absolute;
+        button.menu {
+            display: flex;
+            align-items: center;
+            width: 80px;
+            height: 100%;
+            position: ${props => props.showMenu ? 'fixed' : 'absolute'};
             top: 0;
             right: 0;
-            height: 100%;
+            height: ${props => props.height};
             z-index: 1;
         }
         ul {
@@ -117,9 +169,32 @@ const StyledNavbar= styled.nav`
 `;
 
 export default function Navbar(props) {
+    function linkHandleClick(event) {
+        window.removeEventListener('scroll', scrollCb);
+        setShowMenu(false); 
+        setHideNav(true);
+        setTimeout(() => {
+            window.addEventListener('scroll', scrollCb);
+        }, 800);
+    }
+
     const [showMenu, setShowMenu]= useState(false);
+    const [lastScrollY, setLastScrollY]= useState(0);
+    const [hideNav, setHideNav]= useState(false);
+    const scrollCb= useCallback(() => {
+        setHideNav(window.scrollY > lastScrollY);
+        setLastScrollY(window.scrollY);
+    }, [lastScrollY]);
+
+    useEffect(() => {
+        window.addEventListener('scroll', scrollCb);
+        return () => window.removeEventListener('scroll', scrollCb);
+    }, [scrollCb]);
+
     return (
-        <StyledNavbar height={props.height} noLogo={props.noLogo} showMenu={showMenu}>
+        <>
+        <div style={{height: props.height ?? '70px'}}></div>
+        <StyledNavbar height={props.height ?? '70px'} noLogo={props.noLogo} showMenu={showMenu} hideNav={hideNav}>
             {props.noLogo ? 
             <></>
             :
@@ -127,13 +202,20 @@ export default function Navbar(props) {
                 <img src="./favicon.ico" alt="Logo" />
                 <h1>Mi Solcito</h1>
             </Link>}
-            <button onClick={() => setShowMenu(!showMenu)}>hello</button>
+            <button className={`menu ${showMenu ? 'opened' : ''}`} onClick={() => setShowMenu(!showMenu)}>
+                <svg viewBox="0 0 100 100">
+                  <path class="line line1" d="M 20,29.000046 H 80.000231 C 80.000231,29.000046 94.498839,28.817352 94.532987,66.711331 94.543142,77.980673 90.966081,81.670246 85.259173,81.668997 79.552261,81.667751 75.000211,74.999942 75.000211,74.999942 L 25.000021,25.000058" />
+                  <path class="line line2" d="M 20,50 H 80" />
+                  <path class="line line3" d="M 20,70.999954 H 80.000231 C 80.000231,70.999954 94.498839,71.182648 94.532987,33.288669 94.543142,22.019327 90.966081,18.329754 85.259173,18.331003 79.552261,18.332249 75.000211,25.000058 75.000211,25.000058 L 25.000021,74.999942" />
+                </svg>
+            </button>
             <ul>
-                <li onClick={() => setShowMenu(false)}><Link to="/products#">Productos</Link></li>
-                <li onClick={() => setShowMenu(false)}><Link to="/#about">Nosotros</Link></li>
-                <li onClick={() => setShowMenu(false)}><Link to="/#services">Servicios</Link></li>
-                <li onClick={() => setShowMenu(false)}><Link to="/#contact">Contacto</Link></li>
+                <li><Link onClick={linkHandleClick} to="/products#">Productos</Link></li>
+                <li><Link onClick={linkHandleClick} to="/#about">Nosotros</Link></li>
+                <li><Link onClick={linkHandleClick} to="/#services">Servicios</Link></li>
+                <li><Link onClick={linkHandleClick} to="/#contact">Contacto</Link></li>
             </ul>
         </StyledNavbar>
+        </>
     )
 }

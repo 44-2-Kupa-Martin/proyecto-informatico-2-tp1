@@ -15,37 +15,38 @@ const StyledContact= styled.section`
         vertical-align: auto;
     }
     img#contacto1{
-        min-width: 400px;
         margin: 0 10px 10px 0;
-        flex-basis: 0;
+        flex-basis: 400px;
         flex-grow: 1;
     }
     div#lol{
         display: flex;
+        flex-flow: row wrap;
         height: fit-content;
-        flex-flow: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
     }
     img#primagen{
+        margin: 0 auto 10px auto;
         max-width: 50%;
         width: 50%;
         height: 50%;
-        margin: 0 10px 10px 0;
-        flex-basis: 0;
+        flex-basis: 350px;
         flex-grow: 1;
         
     }
     .mybox{
+        display: inline-flex;
+        margin: 0 auto 10px auto;
+        width: 400px;
+        flex-flow: column;
+        justify-content: space-between;
         border: solid 1px black;
-        margin: 0px 10px 10px 10px;
         padding: 10px;
-        height: 322px;
     }
     div#moyajumpscare{
         display: flex;
         flex-flow: row;
         justify-content: space-between;
+        padding-bottom: 10px;
     }
     label{
        display: block;
@@ -54,22 +55,19 @@ const StyledContact= styled.section`
     }
     div#moyajumpscare div{
         width:45%;
-        padding-bottom: 10px;
     }
     div#moyajumpscare input{
         width:100%;
     }
     input{
+        display: block;
+        width: 100%;
         border-style: none;
         border-bottom: solid 1px;
         margin-bottom: 10px;
 
     }
-    div#lol2{
-        padding-bottom: 20px;
-    }
     button {
-        margin-top: 50px;
         border: none;
         color: white;
         text-align: center;
@@ -117,16 +115,17 @@ export default function Contact(props) {
                             <input required type="text" id="name" name="name"></input>
                         </div>   
                         <div>
-                            <label htmlFor="surname">apellido</label> 
+                            <label htmlFor="surname">Apellido</label> 
                             <input required type="text" id="surname" name="surname"></input>
                         </div>
                     </div>    
-                    <div id="lol2">
+                    <div>
                         <label id="email" htmlFor="email">Email *</label> 
                         <input required type="text" id="email" name="email"></input>
-
+                    </div>
+                    <div>
                         <label htmlFor="escriba">Escriba un Mensaje </label> 
-                        <input required type="text" id="escriba" name="escriba"></input> 
+                        <input required type="text" id="escriba" name="escriba"></input>                         
                     </div>
                     <button type="submit">Enviar</button>
                 </form>

@@ -2,12 +2,16 @@ import styled from "styled-components";
 import Navbar from "../Navbar";
 // Jowi
 const StyledHeader= styled.header`
+
 div.rss {
     display: flex;
     flex-direction: row-reverse;    
 
 }
 
+#tortapija {
+    width: 80%;
+}
 
 div.rss img{
         height: 50px;
