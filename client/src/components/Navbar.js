@@ -71,6 +71,10 @@ const StyledNavbar= styled.nav`
     li:hover>a {
         color: black;
     }
+
+    h1 {
+        color: black;
+    }
 `;
 
 export default function Navbar(props) {

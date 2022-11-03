@@ -6,7 +6,7 @@ const StyledFooter= styled.footer`
          display: flex;
          flex-direction: row;
          color: white;
-         background-color: grey;
+         background-color: pink;
          justify-content: center;
          padding-top: 3em;
          width: 100%;
@@ -68,7 +68,7 @@ export default function Footer(params) {
                           <li>Direccion del local</li>
                             <li>Tel: 4596-9094</li>
                             <li>Nuestras Redes sociales</li>
-                            <li id="redes"><a href="https://www.facebook.com"><img src="./Facebook.png"/></a> <a href="https://www.instagram.com"><img src="./Instawhite.png"/></a> <a href="https://www.twitter.com"><img src="./Twitterwhite.png" /></a></li>
+                            <li id="redes"><a href="https://www.facebook.com"><img src="./Facebook.png" alt="Fc"/></a> <a href="https://www.instagram.com"><img src="./Instawhite.png" alt="inst"/></a> <a href="https://www.twitter.com"><img src="./Twitterwhite.png" alt="tw" /></a></li>
                           </ul>
                         </div>
                         <div>

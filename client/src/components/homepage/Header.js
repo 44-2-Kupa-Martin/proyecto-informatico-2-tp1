@@ -8,6 +8,9 @@ div.rss {
 
 }
 
+h1 , h2 {
+    color: #ad9046;
+}
 
 div.rss img{
         height: 50px;
@@ -41,6 +44,7 @@ div span h2{
 
 }
 `;
+
 
 export default function Header(params) {
     return (
