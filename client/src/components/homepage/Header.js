@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import Navbar from "../Navbar";
 // Jowi
@@ -11,6 +12,8 @@ div.rss {
 
 #tortapija {
     width: 80%;
+h1 , h2 {
+    color: #ad9046;
 }
 
 div.rss img{
@@ -45,6 +48,7 @@ div span h2{
 
 }
 `;
+
 
 export default function Header(params) {
     return (

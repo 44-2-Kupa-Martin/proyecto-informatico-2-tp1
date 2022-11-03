@@ -5,7 +5,7 @@ const StyledContact= styled.section`
         text-align: center;
         font-family: 'Calibri';
         font-weight: 600;
-        color: #404040;
+        color: #ad9046;
     }
     p{
         text-align: justify;
@@ -41,6 +41,8 @@ const StyledContact= styled.section`
         justify-content: space-between;
         border: solid 1px black;
         padding: 10px;
+        height: 322px;
+        border-color: pink;
     }
     div#moyajumpscare{
         display: flex;
@@ -65,6 +67,7 @@ const StyledContact= styled.section`
         border-style: none;
         border-bottom: solid 1px;
         margin-bottom: 10px;
+        border-color: pink;
 
     }
     button {
@@ -78,6 +81,7 @@ const StyledContact= styled.section`
         border-radius: 62.5px;
         width: 130px;
         height: 30px;
+        background-color: pink;
     }
     button:hover {
         background-color: rgb(197, 123, 112);
