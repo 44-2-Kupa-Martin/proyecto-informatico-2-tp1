@@ -27,6 +27,7 @@ const StyledNavbar= styled.nav`
     }
     .menu svg {
         height: 80%;
+        
     }
     .line {
       fill: none;
@@ -64,7 +65,7 @@ const StyledNavbar= styled.nav`
     }
 
 
-    button {
+    button.menu {
         display: none;
     }
 
@@ -169,12 +170,8 @@ const StyledNavbar= styled.nav`
             display: block;
             width: 100%;
         }
-=========
-    h1 {
-        color: black;
->>>>>>>>> Temporary merge branch 2
-    }
-`;
+
+    }`;
 
 export default function Navbar(props) {
     function linkHandleClick(event) {
