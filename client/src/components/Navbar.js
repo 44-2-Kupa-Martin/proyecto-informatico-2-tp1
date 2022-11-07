@@ -131,6 +131,10 @@ const StyledNavbar= styled.nav`
         color: black;
     }
 
+    h1 {
+        color: black;
+    }
+
     @media (max-width: 630px) {
         a.logo {
             margin: auto;

@@ -9,6 +9,9 @@ div.rss {
 
 }
 
+h1 , h2 {
+    color: #ad9046;
+}
 #tortapija {
     width: 80%;
 }
@@ -45,6 +48,7 @@ div span h2{
 
 }
 `;
+
 
 export default function Header(params) {
     return (
