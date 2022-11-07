@@ -1,3 +1,4 @@
+
 import styled from "styled-components";
 import Navbar from "../Navbar";
 // Jowi
@@ -46,8 +47,7 @@ div span h2{
     flex-direction: column;
     text-align: center;
 
-}
-`;
+}`;
 
 
 export default function Header(params) {

@@ -169,6 +169,10 @@ const StyledNavbar= styled.nav`
             display: block;
             width: 100%;
         }
+=========
+    h1 {
+        color: black;
+>>>>>>>>> Temporary merge branch 2
     }
 `;
 

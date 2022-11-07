@@ -41,7 +41,6 @@ const StyledContact= styled.section`
         justify-content: space-between;
         border: solid 1px black;
         padding: 10px;
-        border-color: pink;
     }
     div#moyajumpscare{
         display: flex;
