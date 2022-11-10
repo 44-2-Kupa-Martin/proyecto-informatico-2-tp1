@@ -11,11 +11,13 @@ const StyledAbout= styled.section`
         color: #ad9046;
     }
     p{
-        text-align: justify;
-        font-family: 'Calibri';
-        font-size: clamp(10px, 2.02vw, 20px);
-        color: #595959;
-        vertical-align: auto;
+        
+        height: fit-content;
+        margin: 0;
+        padding: 5px;
+        font-size: clamp(1rem, 2.18vw, 22px);
+        flex-basis: 305px;
+        flex-grow: 9999999;
     }
     div#nosotros1{
         display: flex;
@@ -72,10 +74,10 @@ export default function About(params) {
           <h1>Nosotros</h1>
           <div id="nosotros1">
           <img id="local1" src="./image1 - nosotros.jpg" alt="Nuestro local" />
-            <p id="texto1"> Pareciera que fue ayer cuando un pequeño grupo de amigos inició un negocio que traeria alegria a los paladares de miles de personas. Actualmente somos una gran familia que hace 10 años se dedica a crear momentos placenteros en tu vida. ¿Cómo? Mediante nuestros postres originales, tortas únicas y muchas más de nuestras dulces creaciones.<br />Trabajamos con el objetivo de satisfacer las expectativas de nuestros clientes. Lo Hacemos con alegría, poniendo pasión y esmero para la elaboración diaria de nuestras propuestas gastronómicas,procurando que esta siempre de la mayor calidad</p>
+            <p id="texto1"> Pareciera que fue ayer cuando un pequeño grupo de amigos inició un negocio que traeria alegria a los paladares de miles de personas. Actualmente somos una gran familia que hace 10 años se dedica a crear momentos placenteros en tu vida. ¿Cómo? Mediante nuestros postres originales, tortas únicas y muchas más de nuestras dulces creaciones.<br />Trabajamos con el objetivo de satisfacer las expectativas de nuestros clientes. Lo Hacemos con alegría, poniendo pasión y esmero para la elaboración diaria de nuestras propuestas gastronómicas,  procurando que esta siempre de la mayor calidad.</p>
             </div>
           <div id="nosotros2">
-            <p>Hemos recorrido un largo camino para llegar a ser quienes somos y todo eso fue posible gracias a quienes nos apoyaron. <br />  Mi Solcito creció gracias a vos y seguirá acompañándote en los mejores momentos.<br /> Le invitamos a  contar con nosotros, esperamos siempre sorpenderle</p>
+            <p>Hemos recorrido un largo camino para llegar a ser quienes somos y todo eso fue posible gracias a quienes nos apoyaron. <br />  Mi Solcito creció gracias a vos y seguirá acompañándote en los mejores momentos.<br /> Le invitamos a  contar con nosotros, esperamos siempre sorpenderle.</p>
             <img id="local2" src="./image2 - nosotros.jpg" alt="Nuestro local2"/>
           </div>  
                   
