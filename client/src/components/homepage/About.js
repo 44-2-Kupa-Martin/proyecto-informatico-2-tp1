@@ -18,6 +18,11 @@ const StyledAbout= styled.section`
         flex-basis: 305px;
         flex-grow: 9999999;
     }
+    div {
+        width: 1000px;
+        height: 1000px;
+    }
+
     div#nosotros1{
         display: flex;
         height: fit-content;
