@@ -54,7 +54,7 @@ const StyledAbout= styled.section`
         width: 51%;
         height: 51%;
         margin: 0 10px 10px 0;
-        flex-basis: 51%;
+        flex-basis: 0;
         flex-grow: 1;
         padding-left: 10px;
         align-self: flex-end;
