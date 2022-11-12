@@ -7,7 +7,7 @@ const StyledProducts = styled.section`
         text-align: center;
         font-family: 'Calibri';
         font-weight: 600;
-        color: #ad9046;
+        
     }
 
     p {

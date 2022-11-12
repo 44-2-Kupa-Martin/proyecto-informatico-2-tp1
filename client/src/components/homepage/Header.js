@@ -10,9 +10,7 @@ div.rss {
 
 }
 
-h1 , h2 {
-    color: #ad9046;
-}
+
 #tortapija {
     width: 80%;
 }

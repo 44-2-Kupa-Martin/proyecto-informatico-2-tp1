@@ -12,7 +12,7 @@ const StyledSection= styled.section`
         font-family: 'Calibri';
         font-size: var(--responsive-title-size);
         font-weight: 600;
-        color: #ad9046;
+        
     }
 
     div {
