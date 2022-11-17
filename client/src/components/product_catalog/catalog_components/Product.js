@@ -24,6 +24,7 @@ const StyledDiv= styled.div`
         position: absolute;
         top: 0;
         backface-visibility: hidden;
+        transform: rotateX(0deg); //fix for mozilla
     }
 
     .back {

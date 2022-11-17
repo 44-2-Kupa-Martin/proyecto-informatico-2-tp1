@@ -7,7 +7,7 @@ const cors= require('cors');
 //Connect to DB
 const dbConfig= {
     user: process.env.DBUSER ?? 'root',
-    password: process.env.DBPASSWORD ?? 'password',
+    password: process.env.DBPASSWORD ?? '',
     database: process.env.DBNAME ?? 'MiSolcito',
     host: process.env.DBHOST ?? 'localhost',
     port: process.env.DBPORT ?? '3306'
@@ -28,7 +28,7 @@ console.log(dbConfig);
 //Express app
 const app= express();
 
-const PORT= process.env.PORT ?? 4000;
+const PORT= process.env.PORT ?? 80;
 
 //Routes
 app.use(cors());
@@ -41,7 +41,7 @@ app.get(/^(?!\/api\/).*$/ /* match everything except routes that start with "/ap
 
 app.get('/api/products', async(req, res) => {
     try {
-        const [rows]= await dbConnection.query('SELECT * FROM products');
+        const [rows]= await dbConnection.query('SELECT * FROM Product');
         res.json(rows);
     } catch (error) {
         console.log(error);
@@ -59,7 +59,7 @@ app.post('/api/messages', async(req, res) => {
     }
 
     try {
-        await dbConnection.execute('INSERT INTO userMessages (name, surname, email, message, ip) VALUES (?, ?, ?, ?, ?)', [name, surname, email, message, req.ip]);
+        await dbConnection.execute('INSERT INTO UserMessage (name, surname, email, message, ip) VALUES (?, ?, ?, ?, ?)', [name, surname, email, message, req.ip]);
         res.status(201).send();
     } catch (error) {
         //Handle ER_DATA_TOO_LONG

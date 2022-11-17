@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "./static/css/main.45e61a1a.css",
+    "main.js": "./static/js/main.e4d05fa2.js",
+    "static/js/787.c4e7f8f9.chunk.js": "./static/js/787.c4e7f8f9.chunk.js",
+    "static/media/hello-honey.otf": "./static/media/hello-honey.68b52dc903cae5736277.otf",
+    "index.html": "./index.html",
+    "main.45e61a1a.css.map": "./static/css/main.45e61a1a.css.map",
+    "main.e4d05fa2.js.map": "./static/js/main.e4d05fa2.js.map",
+    "787.c4e7f8f9.chunk.js.map": "./static/js/787.c4e7f8f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.45e61a1a.css",
+    "static/js/main.e4d05fa2.js"
+  ]
+}
